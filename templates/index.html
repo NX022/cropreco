@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/main.css" />
+    <link rel="stylesheet" href="../static/src/input.css" />
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <title>FarmEasy!</title>
+  </head>
+
+  <body style="overflow: scroll">
+    <nav class="bg-green-600">
+      <div
+        class="max-w-7xl mx-auto px-4 flex justify-between items-center h-20"
+      >
+        <div class="text-white font-bold text-xl flex-1 text-center">
+          Farm Easy!
+        </div>
+      </div>
+    </nav>
+
+    <div
+      class="min-h-screen bg-cover bg-center bg-opacity-50"
+      style="
+        background-image: url('https://img.freepik.com/premium-photo/top-view-green-rubber-plant-nature-landscape_162279-2383.jpg?size=626&ext=jpg&ga=GA1.1.1413502914.1696723200&semt=ais');
+      "
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+        <h1
+          class="text-2xl font-bold mb-5 text-center uppercase"
+          style="color: white"
+        >
+          Crop Recommendation
+        </h1>
+        <form
+          class="flex flex-col gap-5"
+          action="{{ url_for('predict') }}"
+          method="post"
+        >
+          <div class="flex flex-col">
+            <label for="N" class="font-bold mb-2" style="color: white"
+              >Nitrogen</label
+            >
+            <input
+              id="N"
+              type="text"
+              placeholder="Enter the amount of  Nitrogen present in soil"
+              name="n"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+            />
+          </div>
+          <style>
+            ::placeholder {
+              font-weight: bold;
+              color: black;
+            }
+          </style>
+          <div class="flex flex-col">
+            <label for="P" class="font-bold mb-2" style="color: white"
+              >Phosphorus</label
+            >
+            <input
+              id="p"
+              type="text"
+              placeholder="Enter the amount of Phosphorus present in soil"
+              name="p"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+            />
+          </div>
+          <style>
+            ::placeholder {
+              font-weight: bold;
+              color: black;
+            }
+          </style>
+          <div class="flex flex-col">
+            <label for="K" class="font-bold mb-2" style="color: white"
+              >Potassium</label
+            >
+            <input
+              id="K"
+              type="text"
+              placeholder="Enter the amount of Potassium present in soil"
+              name="k"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+            />
+            <style>
+              ::placeholder {
+                font-weight: bold;
+                color: black;
+              }
+            </style>
+          </div>
+          <div class="flex flex-col">
+            <label for="Temprature" class="font-bold mb-2" style="color: white"
+              >Temprature</label
+            >
+            <input
+              id="Temprature"
+              type="text"
+              placeholder="Enter the Temprature of the area"
+              name="temperature"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+            />
+            <style>
+              ::placeholder {
+                font-weight: bold;
+                color: black;
+              }
+            </style>
+          </div>
+          <div class="flex flex-col">
+            <label for="Humidity" class="font-bold mb-2" style="color: white"
+              >Humidity</label
+            >
+            <input
+              id="Humidity"
+              type="text"
+              placeholder="Enter Humidity of the soil"
+              name="humidity"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+                color: black;
+              "
+            />
+            <style>
+              ::placeholder {
+                font-weight: bold;
+                color: black;
+              }
+            </style>
+          </div>
+          <div class="flex flex-col">
+            <label for="pH" class="font-bold mb-2" style="color: white"
+              >PH</label
+            >
+            <input
+              id="pH"
+              type="text"
+              placeholder="Enter the pH value of the soil "
+              name="ph"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+            />
+            <style>
+              ::placeholder {
+                font-weight: bold;
+                color: black;
+              }
+            </style>
+          </div>
+          <div class="flex flex-col">
+            <label for="rainfall" class="font-bold mb-2" style="color: white"
+              >rainfall</label
+            >
+            <input
+              id="rainfall"
+              type="text"
+              placeholder="Enter the amount of rainfall in the area"
+              name="rainfall"
+              class="border border-gray-300 rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+            />
+            <style>
+              ::placeholder {
+                font-weight: bold;
+                color: black;
+              }
+            </style>
+          </div>
+          <div class="flex flex-col">
+            <label for="rainfall" class="font-bold mb-2" style="color: white"
+              >Output</label
+            >
+            <input
+              id="Output"
+              type="text"
+              placeholder="The most suitable crop for the land will be displayed here"
+              name="Output"
+              class="border rounded-md py-2 px-3 w-1/2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-400"
+              style="
+                font-weight: bold;
+                background-color: rgba(200, 200, 200, 0.7);
+                border-color: rgba(200, 200, 200, 0.7);
+              "
+              value="{% if prediction %} {{ prediction }}{% endif %}"
+            />
+          </div>
+
+          <div class="flex py-5">
+            <button
+              type="submit"
+              value="submit"
+              class="bg-blue-500 text-white font-bold py-2 px-4 rounded-md mr-5 focus:outline-none focus:ring-2 focus:ring-blue-400"
+            >
+              Output
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
